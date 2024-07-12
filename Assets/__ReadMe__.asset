@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a33b5ef266a137469d5d69d403cd371, type: 3}
+  m_Name: __ReadMe__
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: decd15f39376a174aaf84e6a0d9f7ef9, type: 3}
+  iconMaxWidth: 128
+  projectName: Replace this Project Name
+  author: Jeremy Bond
+  modificationDate: 2024-06-14
+  sections:
+  - heading: 1. What are the controls to your game? How do we play?
+    text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
+    linkText: 
+    url: 
+  - heading: 2. What creative additions did you make? How can we find them?
+    text: <i>If you don't tell us how to experience them, we could easily miss them.</i>
+    linkText: 
+    url: 
+  - heading: 3. Any assets used that you didn't create yourself?
+    text: I got the icon at the top from Bing.com Dall-E.
+    linkText: 
+    url: 
+  - heading: 4. Did you receive help from anyone outside this class?
+    text: <i>(list their names and what they helped with)</i>
+    linkText: 
+    url: 
+  - heading: 5. Did you get help from any AI Code Assistants?
+    text: <i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file
+      to look in for the citation and describe what you learned)</i>
+    linkText: Test Link text
+    url: http://ecosia.org
+  - heading: 6. Did you get help from any online websites, videos, or tutorials?
+    text: <i>(link them here)</i>
+    linkText: 
+    url: 
+  - heading: 7. What trouble did you have with this project?
+    text: 
+    linkText: 
+    url: 
+  - heading: 8. Is there anything else we should know?
+    text: 
+    linkText: 
+    url: 
+  showReadMeEditor: 1
