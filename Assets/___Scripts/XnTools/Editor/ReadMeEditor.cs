@@ -9,8 +9,6 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.IO;
-using System.Net.NetworkInformation;
-using System.Reflection;
 using System.Text.RegularExpressions;
 
 
@@ -203,7 +201,10 @@ public class ReadMeEditor : Editor {
 			}
 		}
 
-
+		if (EditorGUI.EndChangeCheck()) {
+			EditorUtility.SetDirty(pInfo);
+			AssetDatabase.SaveAssets();
+		}
 	}
 	
 	public List<string> ExtractUrls(string text) {
@@ -261,6 +262,9 @@ public class ReadMeEditor : Editor {
 			writer.Write( fileText );
 			writer.Close();
 		}
+
+		// Update the file's timestamp to ensure Git recognizes the change
+		File.SetLastWriteTimeUtc(path, DateTime.UtcNow);
 	}
 
 	string ReplaceTabsAndNewLines( string sIn ) {

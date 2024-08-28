@@ -15,46 +15,26 @@ MonoBehaviour:
   icon: {fileID: 2800000, guid: decd15f39376a174aaf84e6a0d9f7ef9, type: 3}
   iconMaxWidth: 128
   projectName: Replace this Project Name
-  author: Jeremy Bond
+  author: Replace this with your name
   modificationDate: 2024-08-28
   sections:
   - heading: 1. What are the controls to your game? How do we play?
     text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
-    linkText: 
-    url: 
   - heading: 2. What creative additions did you make? How can we find them?
-    text: <i>If you don't tell us how to experience them, we could easily miss them.</i>
-    linkText: 
-    url: 
+    text: <i>(If you don't tell us how to experience them, we could easily miss them.)</i>
   - heading: 3. Any assets used that you didn't create yourself?
-    text: I got the icon at the top from Bing.com Dall-E.
-    linkText: 
-    url: 
-  - heading: 4. Did you receive help from anyone outside this class?
+    text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
+  - heading: 4. Did you receive help from anyone outside this class or from anyone
+      in this class that is not in a group with you?
     text: <i>(list their names and what they helped with)</i>
-    linkText: 
-    url: 
   - heading: 5. Did you get help from any AI Code Assistants?
-    text: '<i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file
+    text: <i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file
       to look in for the citation and describe what you learned)</i>
-
-
-      http://ecosia.org
-
-
-      http://tinyurl.com/mi231-f24'
-    linkText: Test Link text
-    url: http://ecosia.org
   - heading: 6. Did you get help from any online websites, videos, or tutorials?
     text: <i>(link them here)</i>
-    linkText: 
-    url: 
   - heading: 7. What trouble did you have with this project?
-    text: 
-    linkText: 
-    url: 
+    text: <i>(Even if you didn't complete the project, you can still get partial
+      credit if you tell us about why it's incomplete.)</i>
   - heading: 8. Is there anything else we should know?
     text: 
-    linkText: 
-    url: 
   showReadMeEditor: 0
