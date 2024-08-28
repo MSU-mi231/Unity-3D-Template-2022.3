@@ -14,16 +14,16 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 
 
-[CustomEditor( typeof( ProjectInfo_SO ) )]
+[CustomEditor( typeof( ReadMe_SO ) )]
 [InitializeOnLoad]
-public class ProjectInfoEditor : Editor {
+public class ReadMeEditor : Editor {
 	const string ProjectMenuHeader = "Help";
 
 	static string kShowedProjectInfoSessionStateName = "ProjectInfoEditor.showedProjectInfo";
 
 	static float kSpace = 16f;
 
-	static ProjectInfoEditor() {
+	static ReadMeEditor() {
 		EditorApplication.delayCall += SelectProjectInfoAutomatically;
 	}
 
@@ -46,22 +46,22 @@ public class ProjectInfoEditor : Editor {
 	// 	method.Invoke( null, new object[] { Path.Combine( Application.dataPath, "TutorialInfo/Layout.wlt" ), false } );
 	// }
 
-	[MenuItem( ProjectMenuHeader+"/Show ProjectInfo", false, 1 )]
-	static ProjectInfo_SO SelectProjectInfo() {
-		var ids = AssetDatabase.FindAssets( "t:ProjectInfo_SO" );
+	[MenuItem( ProjectMenuHeader+"/Show Project ReadMe", false, 1 )]
+	static ReadMe_SO SelectProjectInfo() {
+		var ids = AssetDatabase.FindAssets( "t:ReadMe_SO" );
 		if ( ids.Length == 1 ) {
 			var pInfoObject = AssetDatabase.LoadMainAssetAtPath( AssetDatabase.GUIDToAssetPath( ids[0] ) );
 
 			Selection.objects = new UnityEngine.Object[] { pInfoObject };
-			ProjectInfo_SO pInfo = (ProjectInfo_SO) pInfoObject;
+			ReadMe_SO pInfo = (ReadMe_SO) pInfoObject;
 			pInfo.showReadMeEditor = false; // Defaults to not showing the editing interface.
 
 			return pInfo;
 		} else if (ids.Length == 0) {
-			Debug.Log( "Couldn't find a ProjectInfo" );
+			Debug.Log( "Couldn't find a ReadMe" );
 			return null;
 		} else {
-			Debug.Log( "Found more than 1 ProjectInfo file" );
+			Debug.Log( "Found more than 1 ReadMe file" );
 			return null;
         }
 	}
@@ -70,15 +70,15 @@ public class ProjectInfoEditor : Editor {
 	/// Adds an "Edit..." item to the context menu for InfoComponent
 	/// </summary>
 	/// <param name="command"></param>
-	[MenuItem("CONTEXT/ProjectInfo/Edit Project Info...")]
+	[MenuItem("CONTEXT/ReadMe/Edit ReadMe...")]
 	static void EnableEdit(MenuCommand command)
 	{
-		ProjectInfo_SO info = (ProjectInfo_SO)command.context;
+		ReadMe_SO info = (ReadMe_SO)command.context;
 		info.showReadMeEditor = !info.showReadMeEditor;
 	}
 
 	protected override void OnHeaderGUI() {
-		var pInfo = (ProjectInfo_SO) target;
+		var pInfo = (ReadMe_SO) target;
 		Init();
 
 		var iconWidth = Mathf.Min( EditorGUIUtility.currentViewWidth / 3f - 20f, pInfo.iconMaxWidth);
@@ -115,7 +115,7 @@ public class ProjectInfoEditor : Editor {
 					if ( GUILayout.Button( "Edit This ReadMe File" ) ) {
 						pInfo.showReadMeEditor = true;
 						// Update the date
-						pInfo.modificationDate = ProjectInfo_SO.currentDate;
+						pInfo.modificationDate = ReadMe_SO.currentDate;
 					}
 				}
 			}
@@ -125,7 +125,7 @@ public class ProjectInfoEditor : Editor {
 	}
 
 	public override void OnInspectorGUI() {
-		var pInfo = (ProjectInfo_SO) target;
+		var pInfo = (ReadMe_SO) target;
 		Init();
 		
 		// if (pInfo.showReadMeEditor) {
@@ -165,7 +165,7 @@ public class ProjectInfoEditor : Editor {
 					    " MI 231 projects? This cannot be undone.",
 					    "Yes, Reset It", "Cancel" ) ) {
 					// Undo.RecordObjects(pInfo, "Reset ReadMe to Defaults");
-					pInfo.ResetSectionsToDefault();
+					pInfo.ResetReadMeToDefaults();
 				}
 			}
 			GUILayout.Space(20);
@@ -225,7 +225,7 @@ public class ProjectInfoEditor : Editor {
 	// private const bool   DEBUG_MARKDOWN_EXPORT = false;
 	private const string FILE_SEPARATOR        = "\n---\n";
 	private const string FILE_SEPARATOR_CRLF        = "\r\n---\r\n"; 
-	void ExportReadMeMarkDown( ProjectInfo_SO pInfo ) {
+	void ExportReadMeMarkDown( ReadMe_SO pInfo ) {
 		string mdText = pInfo.ToMarkDownString();
 #if DEBUG_MARKDOWN_EXPORT
 		Debug.LogWarning( mdText );

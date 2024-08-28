@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
-[CreateAssetMenu(fileName = "ProjectInfo", menuName = "ScriptableObjects/ProjectInfo", order = 0)]
-public class ProjectInfo_SO : ScriptableObject {
+[CreateAssetMenu(fileName = "__ReadMe__", menuName = "ScriptableObjects/ReadMe", order = 0)]
+public class ReadMe_SO : ScriptableObject {
 	public Texture2D icon = null;
 	// Assets/___Scripts/XnTools/ProjectInfo Icons/ReadMe.png
 	
@@ -22,7 +22,9 @@ public class ProjectInfo_SO : ScriptableObject {
 	[HideInInspector]
 	public bool showReadMeEditor = false;
 
-	public void ResetSectionsToDefault() {
+	public void ResetReadMeToDefaults() {
+		projectName = "Replace this Project Name";
+		author = "Replace this with your name";
 		sections = readMeDefaultSections;
 	}
 
@@ -72,7 +74,8 @@ public class ProjectInfo_SO : ScriptableObject {
 
 			// Help - Person
 			sec = new Section();
-			sec.heading = "4. Did you receive help from anyone outside this class?";
+			sec.heading = "4. Did you receive help from anyone outside this class or from anyone" +
+			              " in this class that is not in a group with you?";
 			sec.text = "<i>(list their names and what they helped with)</i>";
 			sections.Add( sec );
 
@@ -109,7 +112,7 @@ public class ProjectInfo_SO : ScriptableObject {
 	[Serializable]
 	public class Section {
 		[TextArea(1,10)]
-		public string heading, text, linkText, url;
+		public string heading, text; //, linkText, url;
 
 		static public Section demo {
 			get {
@@ -124,12 +127,17 @@ public class ProjectInfo_SO : ScriptableObject {
 			System.Text.StringBuilder sb = new System.Text.StringBuilder();
 			sb.AppendLine( $"**{heading}**   " ); // Note: The extra spaces at the end of the line tell MarkDown to add <br>
 			sb.AppendLine( "\n> &nbsp;" );
-			if ( text == "" ) {
-				if ( url == "" ) {
-					sb.AppendLine( $">*No answer given.*" );
-				}
+			if ( String.IsNullOrEmpty( text ) ) {
+				sb.AppendLine( $">*No answer given.*" );
+				// if ( url == "" ) {
+				// 	sb.AppendLine( $">*No answer given.*" );
+				// }
 			} else {
-				sb.AppendLine( $">{text.Replace( "\n", "    \n> " )}   " );
+				if ( sb == null || text == null ) {
+					Debug.Log( "BREAK" );
+				} else {
+					sb.AppendLine( $">{text.Replace( "\n", "    \n> " )}   " );
+				}
 			}
 			
 			// Actually, this whole link extraction isn't needed in GitLab or GitHub

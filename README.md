@@ -1,6 +1,6 @@
 # **Replace this Project Name** - ReadMe File
 
-#### Author: *Jeremy Bond*
+#### Author: *Replace this with your name*
 
 ##### Modified: *2024-08-28*
 
@@ -18,7 +18,7 @@
 **2. What creative additions did you make? How can we find them?**   
 
 > &nbsp;
-><i>If you don't tell us how to experience them, we could easily miss them.</i>   
+><i>(If you don't tell us how to experience them, we could easily miss them.)</i>   
 > &nbsp;
  
 
@@ -26,12 +26,12 @@
 **3. Any assets used that you didn't create yourself?**   
 
 > &nbsp;
->I got the icon at the top from Bing.com Dall-E.   
+><i>(art, music, etc. Just tell us where you got it, link it here)</i>   
 > &nbsp;
  
 
 
-**4. Did you receive help from anyone outside this class?**   
+**4. Did you receive help from anyone outside this class or from anyone in this class that is not in a group with you?**   
 
 > &nbsp;
 ><i>(list their names and what they helped with)</i>   
@@ -42,11 +42,7 @@
 **5. Did you get help from any AI Code Assistants?**   
 
 > &nbsp;
-><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation and describe what you learned)</i>    
->     
-> http://ecosia.org    
->     
-> http://tinyurl.com/mi231-f24   
+><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation and describe what you learned)</i>   
 > &nbsp;
  
 
@@ -62,7 +58,7 @@
 **7. What trouble did you have with this project?**   
 
 > &nbsp;
->*No answer given.*
+><i>(Even if you didn't complete the project, you can still get partial credit if you tell us about why it's incomplete.)</i>   
 > &nbsp;
  
 
