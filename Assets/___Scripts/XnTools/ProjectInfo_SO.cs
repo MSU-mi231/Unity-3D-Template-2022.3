@@ -132,6 +132,9 @@ public class ProjectInfo_SO : ScriptableObject {
 				sb.AppendLine( $">{text.Replace( "\n", "    \n> " )}   " );
 			}
 			
+			// Actually, this whole link extraction isn't needed in GitLab or GitHub
+			// because they extract URLs automatically! - JGB 2024-08-28
+			/*
 			// Extract the URLs in the text and make them individual buttons
 			List<string> urlList = ExtractUrls( text );
 			if ( urlList.Count > 0 ) {
@@ -148,6 +151,7 @@ public class ProjectInfo_SO : ScriptableObject {
 			// 		sb.AppendLine( $"><{url}>" );
 			// 	}
 			// }
+			*/
 			sb.AppendLine( "> &nbsp;\n \n" );
 			return sb.ToString();
 		}

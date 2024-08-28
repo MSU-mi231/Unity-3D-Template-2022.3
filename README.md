@@ -47,11 +47,6 @@
 > http://ecosia.org    
 >     
 > http://tinyurl.com/mi231-f24   
-   
->   
-> ***Links in this section***   
->[http://ecosia.org](http://ecosia.org)    
->[http://tinyurl.com/mi231-f24](http://tinyurl.com/mi231-f24)    
 > &nbsp;
  
 
