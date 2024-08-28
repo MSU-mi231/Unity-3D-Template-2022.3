@@ -16,7 +16,7 @@ MonoBehaviour:
   iconMaxWidth: 128
   projectName: Replace this Project Name
   author: Jeremy Bond
-  modificationDate: 2024-06-14
+  modificationDate: 2024-08-28
   sections:
   - heading: 1. What are the controls to your game? How do we play?
     text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
@@ -35,8 +35,14 @@ MonoBehaviour:
     linkText: 
     url: 
   - heading: 5. Did you get help from any AI Code Assistants?
-    text: <i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file
+    text: '<i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file
       to look in for the citation and describe what you learned)</i>
+
+
+      http://ecosia.org
+
+
+      http://tinyurl.com/mi231-f24'
     linkText: Test Link text
     url: http://ecosia.org
   - heading: 6. Did you get help from any online websites, videos, or tutorials?
@@ -51,4 +57,4 @@ MonoBehaviour:
     text: 
     linkText: 
     url: 
-  showReadMeEditor: 1
+  showReadMeEditor: 0

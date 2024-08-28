@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 
 [CustomEditor( typeof( ProjectInfo_SO ) )]
@@ -52,8 +53,10 @@ public class ProjectInfoEditor : Editor {
 			var pInfoObject = AssetDatabase.LoadMainAssetAtPath( AssetDatabase.GUIDToAssetPath( ids[0] ) );
 
 			Selection.objects = new UnityEngine.Object[] { pInfoObject };
+			ProjectInfo_SO pInfo = (ProjectInfo_SO) pInfoObject;
+			pInfo.showReadMeEditor = false; // Defaults to not showing the editing interface.
 
-			return (ProjectInfo_SO) pInfoObject;
+			return pInfo;
 		} else if (ids.Length == 0) {
 			Debug.Log( "Couldn't find a ProjectInfo" );
 			return null;
@@ -103,7 +106,7 @@ public class ProjectInfoEditor : Editor {
 							    " also updates the README.md MarkDown file that you see in GitHub and GitLab." +
 							    " When doing so, it prepends the default Unity Template README.md with" +
 							    " the ReadMe in this __ReadMe__ asset. This cannot be undone.",
-							    "Yes, Update ReadMe.md", "Cancel" ) ) {
+							    "Yes, Update ReadMe.md", "Do NOT Update ReadMe.md" ) ) {
 							// Undo.RecordObjects(pInfo, "Reset ReadMe to Defaults");
 							ExportReadMeMarkDown(pInfo);
 						}
@@ -179,17 +182,44 @@ public class ProjectInfoEditor : Editor {
 				if ( !string.IsNullOrEmpty( section.text ) ) {
 					string sTxt = ReplaceTabsAndNewLines(section.text);
 					GUILayout.Label( sTxt, BodyStyle );
-				}
-				if ( !string.IsNullOrEmpty( section.linkText ) ) {
-					if ( LinkLabel( new GUIContent( section.linkText ) ) ) {
-						Application.OpenURL( section.url );
+					
+					// Extract the URLs in the text and make them individual buttons
+					List<string> urlList = ExtractUrls( section.text );
+					if ( urlList.Count > 0 ) {
+						GUILayout.Label( "Links in this section", SubTitleStyle );
+					}
+					foreach (string url in urlList) {
+						if ( LinkLabel( new GUIContent( url ) ) ) {
+							Application.OpenURL( url );
+						}
 					}
 				}
+				// if ( !string.IsNullOrEmpty( section.linkText ) ) {
+				// 	if ( LinkLabel( new GUIContent( section.linkText ) ) ) {
+				// 		Application.OpenURL( section.url );
+				// 	}
+				// }
 				GUILayout.Space( kSpace );
 			}
 		}
 
 
+	}
+	
+	public List<string> ExtractUrls(string text) {
+		var urls = new List<string>();
+		if (string.IsNullOrEmpty(text)) {
+			return urls;
+		}
+
+		var regex = new Regex(@"https?://[^\s]+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		var matches = regex.Matches(text);
+
+		foreach (Match match in matches) {
+			urls.Add(match.Value);
+		}
+
+		return urls;
 	}
 
 	// private const bool   DEBUG_MARKDOWN_EXPORT = false;

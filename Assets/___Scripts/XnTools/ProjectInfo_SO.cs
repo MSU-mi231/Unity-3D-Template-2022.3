@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 
 [CreateAssetMenu(fileName = "ProjectInfo", menuName = "ScriptableObjects/ProjectInfo", order = 0)]
@@ -128,17 +129,45 @@ public class ProjectInfo_SO : ScriptableObject {
 					sb.AppendLine( $">*No answer given.*" );
 				}
 			} else {
-				sb.AppendLine( $">{text}   " );
+				sb.AppendLine( $">{text.Replace( "\n", "    \n> " )}   " );
 			}
-			if ( url != "" ) {
-				if ( linkText != "" ) {
-					sb.AppendLine( $">[{linkText}]({url})" );
-				} else {
-					sb.AppendLine( $"><{url}>" );
-				}
+			
+			// Extract the URLs in the text and make them individual buttons
+			List<string> urlList = ExtractUrls( text );
+			if ( urlList.Count > 0 ) {
+				sb.AppendLine( $"   \n>   \n> ***Links in this section***   " );
 			}
+			foreach (string url in urlList) {
+				sb.AppendLine( $">[{url}]({url})    " );
+			}
+			
+			// if ( url != "" ) {
+			// 	if ( linkText != "" ) {
+			// 		sb.AppendLine( $">[{linkText}]({url})" );
+			// 	} else {
+			// 		sb.AppendLine( $"><{url}>" );
+			// 	}
+			// }
 			sb.AppendLine( "> &nbsp;\n \n" );
 			return sb.ToString();
 		}
+		
+		public List<string> ExtractUrls(string str) {
+			var urls = new List<string>();
+			if (string.IsNullOrEmpty(str)) {
+				return urls;
+			}
+
+			var regex = new Regex(@"https?://[^\s]+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			var matches = regex.Matches(str);
+
+			foreach (Match match in matches) {
+				urls.Add(match.Value);
+			}
+
+			return urls;
+		}
 	}
+	
+	
 }

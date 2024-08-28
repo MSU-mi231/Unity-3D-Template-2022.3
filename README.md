@@ -2,7 +2,7 @@
 
 #### Author: *Jeremy Bond*
 
-##### Modified: *2024-06-14*
+##### Modified: *2024-08-28*
 
 
 <br>
@@ -42,8 +42,16 @@
 **5. Did you get help from any AI Code Assistants?**   
 
 > &nbsp;
-><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation and describe what you learned)</i>   
->[Test Link text](http://ecosia.org)
+><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation and describe what you learned)</i>    
+>     
+> http://ecosia.org    
+>     
+> http://tinyurl.com/mi231-f24   
+   
+>   
+> ***Links in this section***   
+>[http://ecosia.org](http://ecosia.org)    
+>[http://tinyurl.com/mi231-f24](http://tinyurl.com/mi231-f24)    
 > &nbsp;
  
 
