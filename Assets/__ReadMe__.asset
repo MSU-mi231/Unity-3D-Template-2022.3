@@ -16,7 +16,7 @@ MonoBehaviour:
   iconMaxWidth: 128
   projectName: Replace this Project Name
   author: Replace this with your name
-  modificationDate: 2024-08-28
+  modificationDate: 2024-08-30
   sections:
   - heading: 1. What are the controls to your game? How do we play?
     text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
@@ -37,4 +37,4 @@ MonoBehaviour:
       credit if you tell us about why it's incomplete.)</i>
   - heading: 8. Is there anything else we should know?
     text: 
-  showReadMeEditor: 0
+  showReadMeEditor: 1

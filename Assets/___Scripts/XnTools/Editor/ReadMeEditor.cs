@@ -125,6 +125,8 @@ public class ReadMeEditor : Editor {
 	public override void OnInspectorGUI() {
 		var pInfo = (ReadMe_SO) target;
 		Init();
+		// Start a code block to check for GUI changes
+		EditorGUI.BeginChangeCheck();
 		
 		// if (pInfo.showReadMeEditor) {
 		// 	if ( GUILayout.Button( "Finish Editing This ReadMe" ) ) {
