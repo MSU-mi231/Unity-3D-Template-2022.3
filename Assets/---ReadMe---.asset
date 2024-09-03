@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a33b5ef266a137469d5d69d403cd371, type: 3}
-  m_Name: __ReadMe__
+  m_Script: {fileID: 11500000, guid: cc24ba1982d984280970029348e294a3, type: 3}
+  m_Name: ---ReadMe---
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: decd15f39376a174aaf84e6a0d9f7ef9, type: 3}
+  icon: {fileID: 2800000, guid: c55cc35e40a404507a40a804fa1d4852, type: 3}
   iconMaxWidth: 128
   projectName: Replace this Project Name
   author: Replace this with your name
-  modificationDate: 2024-08-30
+  modificationDate: 2024-09-02
   sections:
   - heading: 1. What are the controls to your game? How do we play?
     text: <i>(art, music, etc. Just tell us where you got it, link it here)</i>
