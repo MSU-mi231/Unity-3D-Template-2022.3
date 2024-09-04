@@ -54,6 +54,12 @@ namespace XnTools {
 			get {
 				List<Section> sections = new List<Section>();
 				Section sec;
+				
+				// Itch.io Link
+				sec = new Section();
+				sec.heading = "0. What is the link to your project on itch.io?";
+				sec.text = "<i>(Just paste the link here.)</i>";
+				sections.Add( sec );
 
 				// Controls
 				sec = new Section();
